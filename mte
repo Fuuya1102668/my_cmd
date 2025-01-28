@@ -1,23 +1,22 @@
 #!/bin/bash
 
-echo "$0"
-echo "latexファイルを作成します"
-
 CMD_PATH="$(readlink -f "$0")"
 CMD_DIR="$(dirname "$CMD_PATH")"
-echo "CMD_DIR:$CMD_DIR"
 
-while getopts ds OPT; do
+while getopts dso: OPT; do
     case $OPT in
-        d ) FLG_D="TRUE" ;;
-        s ) FLG_S="TRUE" ;;
+        d ) TYPE="document" ;;
+        s ) TYPE="slide" ;;
+        o ) RENAME="TRUE" ; NAME="$OPTARG" ;;
     esac
 done
 
-if [ "$FLG_D" ]; then
-    echo "ドキュメントを作成"
+cp -r $CMD_DIR/lualatex/$TYPE $PWD
+
+if [ "$RENAME" ]; then
+    mv $PWD/$TYPE $PWD/$NAME
+else
+    NAME=$TYPE
 fi
 
-if [ "$FLG_S" ]; then
-    echo "スライドを作成"
-fi
+echo "$NAMEを作成しました"
