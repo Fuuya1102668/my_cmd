@@ -1,0 +1,2 @@
+onedrive --synchronize
+
