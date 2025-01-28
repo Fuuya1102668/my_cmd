@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "$0"
+echo "latexファイルを作成します"
+
+CMD_PATH="$(readlink -f "$0")"
+CMD_DIR="$(dirname "$CMD_PATH")"
+echo "CMD_DIR:$CMD_DIR"
+
+while getopts ds OPT; do
+    case $OPT in
+        d ) FLG_D="TRUE" ;;
+        s ) FLG_S="TRUE" ;;
+    esac
+done
+
+if [ "$FLG_D" ]; then
+    echo "ドキュメントを作成"
+fi
+
+if [ "$FLG_S" ]; then
+    echo "スライドを作成"
+fi
