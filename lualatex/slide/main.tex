@@ -10,14 +10,12 @@
 
 \usepackage{myconf}
 
-\usetheme{metropolis}
+\usetheme[block=fill]{metropolis}
 
 \renewcommand{\kanjifamilydefault}{\gtdefault}
 \setmainjfont{HaranoAjiMincho-Regular}
 \setsansjfont{HaranoAjiGothic-Normal}
 \setsansfont{HaranoAjiGothic-Normal}
-
-\definecolor{mycolor}{RGB}{35,55,59}
 
 \title{title}
 \author{author}
@@ -28,6 +26,9 @@
 
 \begin{frame}{タイトル}
     スライド
+    \begin{block}{ブロック}
+        block
+    \end{block}
 \end{frame}
 
 \end{document}
