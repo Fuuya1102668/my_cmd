@@ -69,7 +69,7 @@ section strong {
 section.split {
     padding: 0px 0px 0px 0px;
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: var(--grid-left, 2fr) var(--grid-right, 3fr);
     grid-template-areas: "leftpanel rightpanel";
     align-items: center;
 }
@@ -79,6 +79,14 @@ section.split .rdiv {
     height: 100%;
     display: flex;
     align-items: center;
+}
+section.split[data-ratio="2:3"] {
+    --grid-left: 2fr;
+    --grid-right: 3fr;
+}
+section.split[data-ratio="3:2"] {
+    --grid-left: 3fr;
+    --grid-right: 2fr;
 }
 section.split .ldiv { 
     grid-area: leftpanel;
